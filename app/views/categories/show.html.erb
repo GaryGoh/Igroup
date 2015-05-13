@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @category.parent_id %>
+</p>
+
+<p>
+  <strong>Lft:</strong>
+  <%= @category.lft %>
+</p>
+
+<p>
+  <strong>Rgt:</strong>
+  <%= @category.rgt %>
+</p>
+
+<p>
+  <strong>Depth:</strong>
+  <%= @category.depth %>
+</p>
+
+<p>
+  <strong>Children count:</strong>
+  <%= @category.children_count %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

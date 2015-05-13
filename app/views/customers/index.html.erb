@@ -1,0 +1,95 @@
+<div class="col s12">
+
+  <%- model_class = Customer -%>
+  <div class="page-header">
+    <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
+  <table class="table hoverable responsive-table">
+    <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:contact) %></th>
+      <th><%= model_class.human_attribute_name(:date_birth) %></th>
+      <th><%= model_class.human_attribute_name(:gender) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @customers.each do |customer| %>
+        <tr>
+          <td><%= link_to customer.id, customer_path(customer) %></td>
+          <td><%= customer.name %></td>
+          <td><%= customer.contact %></td>
+          <td><%= customer.date_birth %></td>
+          <td><%= customer.gender %></td>
+          <td><%= l customer.created_at %></td>
+          <td>
+
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_customer_path(customer), :class => 'btn btn-small' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        customer_path(customer),
+                        :method => :delete,
+                        :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+                        :class => 'btn btn-small' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_customer_path,
+              :class => 'btn btn-primary' %>
+</div>
+
+
+
+<%= link_to raw('<button class="waves-effect waves-light btn"><i class="mdi-file-cloud left"></i>Customer</button>'), customers_path %>
+
+<%= link_to raw('<button class="waves-effect waves-light btn"><i class="mdi-file-cloud left"></i>About</button>'), about_path %>
+
+
+
+<div class="col s12">
+  <div class="input-field col s6">
+    <i class="mdi-action-account-circle prefix"></i>
+    <input id="icon_prefix" type="text" class="validate">
+    <label for="icon_prefix">First Name</label>
+  </div>
+  <div class="input-field col s6">
+    <i class="mdi-communication-phone prefix"></i>
+    <input id="icon_telephone" type="tel" class="validate">
+    <label for="icon_telephone">Telephone</label>
+  </div>
+</div>
+
+
+
+<div class="col s12">
+  <div class="input-field col s6">
+    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+    <label for="first_name">First Name</label>
+  </div>
+  <div class="input-field col s6">
+    <input id="last_name" type="text" class="validate">
+    <label for="last_name">Last Name</label>
+  </div>
+
+  <div class="input-field col s12">
+    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+    <label for="disabled">Disabled</label>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="password" type="password" class="validate">
+    <label for="password">Password</label>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="email" type="email" class="validate">
+    <label for="email">Email</label>
+  </div>
+</div>

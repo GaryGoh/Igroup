@@ -23,6 +23,19 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+
+# Front-end framework
+gem "twitter-bootstrap-rails"
+# gem 'bootstrap-material-design'
+gem 'materialize-sass'
+
+# Category
+gem 'awesome_nested_set'
+
+# Meta-search
+gem 'ransack'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

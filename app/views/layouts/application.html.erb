@@ -2,13 +2,58 @@
 <html>
 <head>
   <title>Igroup</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+
+<style>
+    body {
+        background-color: #ffffff;
+    }
+
+    main {
+        margin-top: 20px;
+    }
+</style>
+
 <body>
 
-<%= yield %>
+
+<!-- Navbar goes here -->
+<%= render "layouts/header" %>
+
+<!-- Page Layout here -->
+<div class="container">
+  <main class="row">
+
+    <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
+      <!-- Grey navigation panel
+
+            This content will be:
+        3-columns-wide on large screens,
+        4-columns-wide on medium screens,
+        12-columns-wide on small screens  -->
+      <%= render "layouts/nav" %>
+
+    </div>
+
+    <div class="col s12 m8 l9"> <!-- Note that "m8 l9" was added -->
+      <!-- Teal page content
+
+            This content will be:
+        9-columns-wide on large screens,
+        8-columns-wide on medium screens,
+        12-columns-wide on small screens  -->
+      <%= yield %>
+    </div>
+
+
+</main>
+</div>
+<%= render "layouts/footer" %>
+
 
 </body>
 </html>
