@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :products
+  resources :products do
+    collection { post :search, to: 'products#index' }
+  end
 
   resources :stores
 
