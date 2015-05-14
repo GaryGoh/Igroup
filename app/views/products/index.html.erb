@@ -1,7 +1,7 @@
 <div class="card-panel">
   <%= search_form_for @search, url: search_products_path, method: :post do |f| %>
       <%= f.condition_fields do |c| %>
-          <div class="col s12">
+          <div class="">
             <%= render "condition_fields", f: c %>
           </div>
       <% end %>
@@ -16,7 +16,7 @@
         <% end %>
       </div>
 
-      <div class="actions"><%= f.submit "Search", :class => "btn" %></div>
+      <div class="actions"><%= f.submit "Search", :class => "btn btn-block" %></div>
   <% end %>
 </div>
 
@@ -52,7 +52,7 @@
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_product_path(product), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      product_path(product),
+                      product,
                       :method => :delete,
                       :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
                       :class => 'btn btn-xs btn-danger' %>
